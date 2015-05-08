@@ -10,6 +10,8 @@
 		4D4EBE991AFA503100082597 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4EBE981AFA503100082597 /* Images.xcassets */; };
 		4D4EBE9C1AFA503100082597 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4EBE9A1AFA503100082597 /* LaunchScreen.xib */; };
 		4D4EBEA81AFA503100082597 /* CsWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4EBEA71AFA503100082597 /* CsWeiboTests.m */; };
+		4D6F253A1AFC673D001FFC3F /* OHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F25391AFC673D001FFC3F /* OHSearchBar.m */; };
+		4D6F253D1AFC943A001FFC3F /* OHDropDownWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F253C1AFC943A001FFC3F /* OHDropDownWindow.m */; };
 		4D826DAA1AFB0F2900BBB4B2 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D826D9F1AFB0F2900BBB4B2 /* libWeiboSDK.a */; };
 		4D826DAB1AFB0F2900BBB4B2 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4D826DA71AFB0F2900BBB4B2 /* WeiboSDK.bundle */; };
 		4D826DAD1AFB0F9F00BBB4B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D826DAC1AFB0F9F00BBB4B2 /* QuartzCore.framework */; };
@@ -24,6 +26,7 @@
 		4D826DDA1AFB466900BBB4B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D826DCF1AFB466900BBB4B2 /* main.m */; };
 		4D826DDD1AFB47C200BBB4B2 /* OHMainNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D826DDC1AFB47C200BBB4B2 /* OHMainNaviViewController.m */; };
 		4D826DE01AFB480B00BBB4B2 /* OHMainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D826DDF1AFB480B00BBB4B2 /* OHMainTabBarViewController.m */; };
+		4DA3DB491AFCB31000E02FCC /* OHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA3DB481AFCB31000E02FCC /* OHTabBar.m */; };
 		4DAACE871AFB55C20082068B /* OHDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAACE861AFB55C20082068B /* OHDiscoverViewController.m */; };
 		4DAACE8A1AFB55D30082068B /* OHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAACE891AFB55D30082068B /* OHHomeViewController.m */; };
 		4DAACE8D1AFB55EB0082068B /* OHMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAACE8C1AFB55EB0082068B /* OHMessageCenterViewController.m */; };
@@ -50,6 +53,10 @@
 		4D4EBEA11AFA503100082597 /* CsWeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CsWeiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4EBEA61AFA503100082597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D4EBEA71AFA503100082597 /* CsWeiboTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CsWeiboTests.m; sourceTree = "<group>"; };
+		4D6F25381AFC673D001FFC3F /* OHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSearchBar.h; sourceTree = "<group>"; };
+		4D6F25391AFC673D001FFC3F /* OHSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHSearchBar.m; sourceTree = "<group>"; };
+		4D6F253B1AFC943A001FFC3F /* OHDropDownWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHDropDownWindow.h; sourceTree = "<group>"; };
+		4D6F253C1AFC943A001FFC3F /* OHDropDownWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHDropDownWindow.m; sourceTree = "<group>"; };
 		4D826D9F1AFB0F2900BBB4B2 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		4D826DA01AFB0F2900BBB4B2 /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
 		4D826DA11AFB0F2900BBB4B2 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
@@ -76,6 +83,8 @@
 		4D826DDC1AFB47C200BBB4B2 /* OHMainNaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHMainNaviViewController.m; sourceTree = "<group>"; };
 		4D826DDE1AFB480B00BBB4B2 /* OHMainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHMainTabBarViewController.h; sourceTree = "<group>"; };
 		4D826DDF1AFB480B00BBB4B2 /* OHMainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHMainTabBarViewController.m; sourceTree = "<group>"; };
+		4DA3DB471AFCB31000E02FCC /* OHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHTabBar.h; sourceTree = "<group>"; };
+		4DA3DB481AFCB31000E02FCC /* OHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHTabBar.m; sourceTree = "<group>"; };
 		4DAACE841AFB4F130082068B /* OHToolsColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OHToolsColor.h; sourceTree = "<group>"; };
 		4DAACE851AFB55C20082068B /* OHDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHDiscoverViewController.h; sourceTree = "<group>"; };
 		4DAACE861AFB55C20082068B /* OHDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHDiscoverViewController.m; sourceTree = "<group>"; };
@@ -331,6 +340,12 @@
 		4D826DD01AFB466900BBB4B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D6F25381AFC673D001FFC3F /* OHSearchBar.h */,
+				4D6F25391AFC673D001FFC3F /* OHSearchBar.m */,
+				4D6F253B1AFC943A001FFC3F /* OHDropDownWindow.h */,
+				4D6F253C1AFC943A001FFC3F /* OHDropDownWindow.m */,
+				4DA3DB471AFCB31000E02FCC /* OHTabBar.h */,
+				4DA3DB481AFCB31000E02FCC /* OHTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -524,11 +539,14 @@
 				4DAACE971AFB58CD0082068B /* UIView+Extension.m in Sources */,
 				4DAACE8A1AFB55D30082068B /* OHHomeViewController.m in Sources */,
 				4DAACE941AFB57470082068B /* UIBarButtonItem+OHExtension.m in Sources */,
+				4D6F253A1AFC673D001FFC3F /* OHSearchBar.m in Sources */,
 				4DAACE871AFB55C20082068B /* OHDiscoverViewController.m in Sources */,
 				4D826DDD1AFB47C200BBB4B2 /* OHMainNaviViewController.m in Sources */,
 				4DAACE901AFB55FE0082068B /* OHProfileViewController.m in Sources */,
 				4D826DDA1AFB466900BBB4B2 /* main.m in Sources */,
 				4D826DE01AFB480B00BBB4B2 /* OHMainTabBarViewController.m in Sources */,
+				4DA3DB491AFCB31000E02FCC /* OHTabBar.m in Sources */,
+				4D6F253D1AFC943A001FFC3F /* OHDropDownWindow.m in Sources */,
 				4DAACE8D1AFB55EB0082068B /* OHMessageCenterViewController.m in Sources */,
 				4D826DD91AFB466900BBB4B2 /* AppDelegate.m in Sources */,
 			);

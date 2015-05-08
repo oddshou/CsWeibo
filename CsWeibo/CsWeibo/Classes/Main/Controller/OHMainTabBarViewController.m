@@ -11,6 +11,8 @@
 #import "OHMainNaviViewController.h"
 #import "OHHomeViewController.h"
 #import "OHMessageCenterViewController.h"
+#import "OHDiscoverViewController.h"
+#import "OHTabBar.h"
 
 @interface OHMainTabBarViewController ()
 
@@ -27,11 +29,13 @@
     OHMessageCenterViewController *messageCenter = [[OHMessageCenterViewController alloc] init];
     [self addChildVc:messageCenter title:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
     
-    UIViewController *discover = [[UIViewController alloc] init];
+    OHDiscoverViewController *discover = [[OHDiscoverViewController alloc] init];
     [self addChildVc:discover title:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
     
     UIViewController *profile = [[UIViewController alloc] init];
     [self addChildVc:profile title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +75,12 @@
     OHMainNaviViewController *nav = [[OHMainNaviViewController alloc] initWithRootViewController:childVc];
 //    childVc.view.backgroundColor = OHRandomColor;
     [self addChildViewController:nav];
+    
+    
+    //替换系统 tabbar, kvc tabBar readOnly
+    OHTabBar *tabBar = [[OHTabBar alloc] init];
+    [self setValue:tabBar forKey:@"tabBar"];
+    
 }
 
 /*
