@@ -11,6 +11,7 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//设置debug log 开关
 #ifdef DEBUG
 #define NSLog(...) NSLog(__VA_ARGS__)
 #define NsHello 2
@@ -19,6 +20,9 @@
 #define NSLog(...)
 #define debugMethod()
 #endif
+//定义数据访问 常量
+#define kAppKey @"1835385221"
+#define kRedirectURI @"https://api.weibo.com/oauth2/default.html"
 
 
 #endif

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 //#import "WeiboSDK.h"
 #import "OHMainTabBarViewController.h"
+#import "OHOAuthViewController.h"
+#import "OHNewFeatureViewController.h"
 
 
 @interface AppDelegate ()
@@ -25,19 +27,30 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    OHMainTabBarViewController *tabBarVc = [[OHMainTabBarViewController alloc] init];
-    //tabController 添加几个viewcontroller 确定效果
-//    UIViewController *vc = [[UIViewController alloc] init];
-//    vc.view.backgroundColor = [UIColor redColor];
-//    [tabBarVc addChildViewController:vc];
-//    
-//    UIViewController *vc2 = [[UIViewController alloc] init];
-//    vc2.view.backgroundColor = [UIColor blueColor];
-//    [tabBarVc addChildViewController:vc2];
+//    OHMainTabBarViewController *tabBarVc = [[OHMainTabBarViewController alloc] init];
+//    self.window.rootViewController = tabBarVc;
     
-    self.window.rootViewController = tabBarVc;
+//    OHOAuthViewController *vc = [[OHOAuthViewController alloc] init];
+//    self.window.rootViewController = vc;
+    
+    NSString *key = @"CFBundleVersion";
+    //取出上次版本号
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    //当前软件版本号（info.plist）
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+    
+    if ([currentVersion isEqualToString:lastVersion]) {
+        self.window.rootViewController = [[OHMainTabBarViewController alloc] init];
+    }else{
+        self.window.rootViewController = [[OHNewFeatureViewController alloc] init];
+        
+        //存储当前版本到沙盒
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     [self.window makeKeyAndVisible];
+    NSLog(@"bundle path%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
     
     return YES;
 }

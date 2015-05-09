@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D4D02441AFDD29B00471341 /* OHOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D02431AFDD29B00471341 /* OHOAuthViewController.m */; };
+		4D4D02491AFDE3D800471341 /* OHNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4D02481AFDE3D800471341 /* OHNewFeatureViewController.m */; };
 		4D4EBE991AFA503100082597 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4EBE981AFA503100082597 /* Images.xcassets */; };
 		4D4EBE9C1AFA503100082597 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D4EBE9A1AFA503100082597 /* LaunchScreen.xib */; };
 		4D4EBEA81AFA503100082597 /* CsWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4EBEA71AFA503100082597 /* CsWeiboTests.m */; };
@@ -46,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D4D02421AFDD29B00471341 /* OHOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHOAuthViewController.h; sourceTree = "<group>"; };
+		4D4D02431AFDD29B00471341 /* OHOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHOAuthViewController.m; sourceTree = "<group>"; };
+		4D4D02471AFDE3D800471341 /* OHNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHNewFeatureViewController.h; sourceTree = "<group>"; };
+		4D4D02481AFDE3D800471341 /* OHNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHNewFeatureViewController.m; sourceTree = "<group>"; };
 		4D4EBE881AFA503100082597 /* CsWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CsWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4EBE8C1AFA503100082597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D4EBE981AFA503100082597 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -128,6 +134,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D4D02401AFDD28400471341 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				4D4D02411AFDD28400471341 /* Controller */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		4D4D02411AFDD28400471341 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D4D02421AFDD29B00471341 /* OHOAuthViewController.h */,
+				4D4D02431AFDD29B00471341 /* OHOAuthViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4D4D02451AFDE3C800471341 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4D4D02461AFDE3C800471341 /* Controller */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		4D4D02461AFDE3C800471341 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D4D02471AFDE3D800471341 /* OHNewFeatureViewController.h */,
+				4D4D02481AFDE3D800471341 /* OHNewFeatureViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4D4EBE7F1AFA503100082597 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +261,8 @@
 		4D826DC01AFB466900BBB4B2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D4D02451AFDE3C800471341 /* NewFeature */,
+				4D4D02401AFDD28400471341 /* OAuth */,
 				4D826DC11AFB466900BBB4B2 /* Discover */,
 				4D826DC51AFB466900BBB4B2 /* Home */,
 				4D826DC91AFB466900BBB4B2 /* Main */,
@@ -538,9 +580,11 @@
 			files = (
 				4DAACE971AFB58CD0082068B /* UIView+Extension.m in Sources */,
 				4DAACE8A1AFB55D30082068B /* OHHomeViewController.m in Sources */,
+				4D4D02491AFDE3D800471341 /* OHNewFeatureViewController.m in Sources */,
 				4DAACE941AFB57470082068B /* UIBarButtonItem+OHExtension.m in Sources */,
 				4D6F253A1AFC673D001FFC3F /* OHSearchBar.m in Sources */,
 				4DAACE871AFB55C20082068B /* OHDiscoverViewController.m in Sources */,
+				4D4D02441AFDD29B00471341 /* OHOAuthViewController.m in Sources */,
 				4D826DDD1AFB47C200BBB4B2 /* OHMainNaviViewController.m in Sources */,
 				4DAACE901AFB55FE0082068B /* OHProfileViewController.m in Sources */,
 				4D826DDA1AFB466900BBB4B2 /* main.m in Sources */,
