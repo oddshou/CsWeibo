@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 //#import "WeiboSDK.h"
-#import "OHMainTabBarViewController.h"
 #import "OHOAuthViewController.h"
-#import "OHNewFeatureViewController.h"
+#import "UIWindow+OHExtension.h"
+#import "OHAccount.h"
+#import "OHAccountTools.h"
+
 
 
 @interface AppDelegate ()
@@ -26,29 +28,16 @@
 //    [WeiboSDK registerApp:@"1835385221"];
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    
-//    OHMainTabBarViewController *tabBarVc = [[OHMainTabBarViewController alloc] init];
-//    self.window.rootViewController = tabBarVc;
-    
-//    OHOAuthViewController *vc = [[OHOAuthViewController alloc] init];
-//    self.window.rootViewController = vc;
-    
-    NSString *key = @"CFBundleVersion";
-    //取出上次版本号
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-    //当前软件版本号（info.plist）
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-    
-    if ([currentVersion isEqualToString:lastVersion]) {
-        self.window.rootViewController = [[OHMainTabBarViewController alloc] init];
+
+    //判断是否授权登录
+    OHAccount *account = [OHAccountTools account];
+    if (account) { //已经授权登录过并没有过期
+        [self.window switchRootViewController];
     }else{
-        self.window.rootViewController = [[OHNewFeatureViewController alloc] init];
-        
-        //存储当前版本到沙盒
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        //没有可用的账号信息
+        self.window.rootViewController = [[OHOAuthViewController alloc] init];
     }
-    
+
     [self.window makeKeyAndVisible];
     NSLog(@"bundle path%@", NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
     

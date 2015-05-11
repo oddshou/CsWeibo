@@ -23,6 +23,7 @@
 //定义数据访问 常量
 #define kAppKey @"1835385221"
 #define kRedirectURI @"https://api.weibo.com/oauth2/default.html"
+#define kAppSecret @"87ba9aa7982650016e5d07ffc5f7f107"
 
 
 #endif
