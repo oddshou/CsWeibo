@@ -11,6 +11,7 @@
 #import "OHAccount.h"
 #import "OHAccountTools.h"
 #import "UIWindow+OHExtension.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface OHOAuthViewController () <UIWebViewDelegate>
 
@@ -36,11 +37,18 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSLog(@"----webViewDidFinishLoad");
+    [MBProgressHUD hideHUD];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     NSLog(@"---webViewDidStartLoad");
+    [MBProgressHUD showMessage:@"正在加载..."];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [MBProgressHUD hideHUD];
 }
 
 #pragma mark 每次webView 加载前都会调用
@@ -88,6 +96,7 @@
     params[@"code"] = code;
     
     [afManager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideHUD];
         NSLog(@"请求成功  %@", responseObject);
         //从新浪返回的 responseObject 是字典类型
         OHAccount *account = [OHAccount accountWithDict:responseObject];
@@ -99,6 +108,7 @@
         //access_token = @"2.00J5DCLE8XFNAC64fa0f7b933eJ8zB";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败 %@", error);
+        [MBProgressHUD hideHUD];
     }];
     
 }
