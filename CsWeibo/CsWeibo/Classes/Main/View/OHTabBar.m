@@ -39,6 +39,8 @@
         [plusBtn addTarget:self action:@selector(plusClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:plusBtn];
         self.plusBtn = plusBtn;
+//        [self setBackgroundColor:[UIColor clearColor]];
+//        [self setBackgroundImage:nil];
     }
     
     return self;

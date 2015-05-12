@@ -77,6 +77,8 @@
 		4DB9E7721B019B6C00ABB1A5 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E7601B019B6C00ABB1A5 /* UIImageView+HighlightedWebCache.m */; };
 		4DB9E7731B019B6C00ABB1A5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E7621B019B6C00ABB1A5 /* UIImageView+WebCache.m */; };
 		4DB9E7741B019B6C00ABB1A5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E7641B019B6C00ABB1A5 /* UIView+WebCacheOperation.m */; };
+		4DB9E7771B01C26F00ABB1A5 /* OHLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E7761B01C26F00ABB1A5 /* OHLoadMoreFooter.m */; };
+		4DB9E7791B01C29500ABB1A5 /* OHLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB9E7781B01C29500ABB1A5 /* OHLoadMoreFooter.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +235,9 @@
 		4DB9E7621B019B6C00ABB1A5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		4DB9E7631B019B6C00ABB1A5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		4DB9E7641B019B6C00ABB1A5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		4DB9E7751B01C26F00ABB1A5 /* OHLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHLoadMoreFooter.h; sourceTree = "<group>"; };
+		4DB9E7761B01C26F00ABB1A5 /* OHLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHLoadMoreFooter.m; sourceTree = "<group>"; };
+		4DB9E7781B01C29500ABB1A5 /* OHLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OHLoadMoreFooter.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +555,9 @@
 			children = (
 				4D14C5461B00C990007F0314 /* OHTitleButton.h */,
 				4D14C5471B00C990007F0314 /* OHTitleButton.m */,
+				4DB9E7751B01C26F00ABB1A5 /* OHLoadMoreFooter.h */,
+				4DB9E7761B01C26F00ABB1A5 /* OHLoadMoreFooter.m */,
+				4DB9E7781B01C29500ABB1A5 /* OHLoadMoreFooter.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -824,6 +832,7 @@
 				4D4FD1751B009DFB00A4CC9B /* MBProgressHUD.bundle in Resources */,
 				4D4EBE991AFA503100082597 /* Images.xcassets in Resources */,
 				4D826DAB1AFB0F2900BBB4B2 /* WeiboSDK.bundle in Resources */,
+				4DB9E7791B01C29500ABB1A5 /* OHLoadMoreFooter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,6 +887,7 @@
 				4D14C5651B00D117007F0314 /* NSObject+MJCoding.m in Sources */,
 				4D826DE01AFB480B00BBB4B2 /* OHMainTabBarViewController.m in Sources */,
 				4DA3DB491AFCB31000E02FCC /* OHTabBar.m in Sources */,
+				4DB9E7771B01C26F00ABB1A5 /* OHLoadMoreFooter.m in Sources */,
 				4DB9E76F1B019B6C00ABB1A5 /* UIImage+GIF.m in Sources */,
 				4D14C5631B00D117007F0314 /* MJProperty.m in Sources */,
 				4DB9E76C1B019B6C00ABB1A5 /* SDWebImageManager.m in Sources */,
