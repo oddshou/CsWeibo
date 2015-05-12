@@ -16,9 +16,26 @@
 #import "OHAccount.h"
 #import "OHUser.h"
 #import "MJExtension.h"
+#import "OHStatus.h"
+#import "UIImageView+WebCache.h"
 
+
+@interface OHHomeViewController ()
+
+@property (nonatomic, strong) NSMutableArray *statuses;
+
+@end
 
 @implementation OHHomeViewController
+
+- (NSMutableArray *)statuses
+{
+    if (!_statuses) {
+        self.statuses = [NSMutableArray array];
+    }
+    
+    return _statuses;
+}
 
 /**
  *  设置导航栏的内容
@@ -87,9 +104,61 @@
     [self setupNav];
     //获取用户信息
     [self setupUserInfo];
+    //集成刷新控件
+    [self setupRefresh];
+}
+
+
+- (void)setupRefresh
+{
+    UIRefreshControl *control =[[UIRefreshControl alloc] init];
+    [control addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:control];
+}
+
+#pragma mark UIRefreshControl target
+- (void)refreshStateChange:(UIRefreshControl *)control
+{
+    NSLog(@"refresh....");
+    // 1.请求管理者
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
+    // 2.拼接请求参数
+    OHAccount *account = [OHAccountTools account];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    
+    // 取出最前面的微博（最新的微博，ID最大的微博）
+    OHStatus *firstStatus = [self.statuses firstObject];
+    if (firstStatus) {
+        // 若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0
+        params[@"since_id"] = firstStatus.idstr;
+    }
+    
+    // 3.发送请求
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        // 将 "微博字典"数组 转为 "微博模型"数组
+        NSArray *newStatuses = [OHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        // 将最新的微博数据，添加到总数组的最前面
+        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuses insertObjects:newStatuses atIndexes:set];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 结束刷新刷新
+        [control endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"请求失败-%@", error);
+        
+        // 结束刷新刷新
+        [control endRefreshing];
+    }];
     
 }
+
 /**
  *  标题点击
  */
@@ -116,19 +185,33 @@
      NSLog(@"clickBtnRight...");
 }
 
+
+
 #pragma mark tableView dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
+    return self.statuses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"<#cell#>";
+    static NSString *ID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [UITableViewCell alloc] initWithStyle:<#(UITableViewCellStyle)#> reuseIdentifier:<#(NSString *)#>
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
+    
+    //取出数组中的每一条 OHstatus
+    OHStatus *status = self.statuses[indexPath.row];
+    OHUser *user = status.user;
+    cell.textLabel.text = user.name;
+    
+    cell.detailTextLabel.text = status.text;
+    
+    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:placeholder];
+    
+    return cell;
 }
 
 
