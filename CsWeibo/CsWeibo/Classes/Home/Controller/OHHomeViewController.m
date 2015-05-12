@@ -19,23 +19,25 @@
 #import "OHStatus.h"
 #import "UIImageView+WebCache.h"
 #import "OHLoadMoreFooter.h"
+#import "OHStatusFrame.h"
+#import "OHStatusCell.h"
 
 
 @interface OHHomeViewController ()
 
-@property (nonatomic, strong) NSMutableArray *statuses;
+@property (nonatomic, strong) NSMutableArray *statusesFrames;
 
 @end
 
 @implementation OHHomeViewController
 
-- (NSMutableArray *)statuses
+- (NSMutableArray *)statusesFrames
 {
-    if (!_statuses) {
-        self.statuses = [NSMutableArray array];
+    if (!_statusesFrames) {
+        self.statusesFrames = [NSMutableArray array];
     }
     
-    return _statuses;
+    return _statusesFrames;
 }
 
 /**
@@ -178,6 +180,22 @@
     [self loadNewStatus:control];
 }
 
+#pragma mark help method
+/**
+ *  将HWStatus模型转为HWStatusFrame模型
+ */
+- (NSArray *)stausFramesWithStatuses:(NSArray *)statuses
+{
+    NSMutableArray *frames = [NSMutableArray array];
+    for (OHStatus *status in statuses) {
+        OHStatusFrame *f = [[OHStatusFrame alloc] init];
+        f.status = status;
+        [frames addObject:f];
+    }
+    return frames;
+}
+
+
 #pragma mark UIRefreshControl target
 - (void)loadNewStatus:(UIRefreshControl *)control
 {
@@ -191,7 +209,7 @@
     params[@"access_token"] = account.access_token;
     
     // 取出最前面的微博（最新的微博，ID最大的微博）
-    OHStatus *firstStatus = [self.statuses firstObject];
+    OHStatus *firstStatus = [[self.statusesFrames firstObject] status];
     if (firstStatus) {
         // 若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0
         params[@"since_id"] = firstStatus.idstr;
@@ -201,11 +219,13 @@
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         // 将 "微博字典"数组 转为 "微博模型"数组
         NSArray *newStatuses = [OHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
         
         // 将最新的微博数据，添加到总数组的最前面
-        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSRange range = NSMakeRange(0, newFrames.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:newStatuses atIndexes:set];
+        //最新数据加入到 OHStatusFrame
+        [self.statusesFrames insertObjects:newFrames atIndexes:set];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -236,7 +256,7 @@
     params[@"access_token"] = account.access_token;
     
     // 取出最后面的微博（最新的微博，ID最大的微博）
-    OHStatus *lastStatus = [self.statuses lastObject];
+    OHStatus *lastStatus = [[self.statusesFrames lastObject] status];
     if (lastStatus) {
         // 若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
         // id这种数据一般都是比较大的，一般转成整数的话，最好是long long类型
@@ -248,9 +268,10 @@
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         // 将 "微博字典"数组 转为 "微博模型"数组
         NSArray *newStatuses = [OHStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        
+        NSArray *newFrames = [self stausFramesWithStatuses:newStatuses];
+
         // 将更多的微博数据，添加到总数组的最后面
-        [self.statuses addObjectsFromArray:newStatuses];
+        [self.statusesFrames addObjectsFromArray:newFrames];
         
         // 刷新表格
         [self.tableView reloadData];
@@ -334,26 +355,30 @@
 #pragma mark tableView dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.statuses.count;
+    return self.statusesFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    OHStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell = [[OHStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     
-    //取出数组中的每一条 OHstatus
-    OHStatus *status = self.statuses[indexPath.row];
-    OHUser *user = status.user;
-    cell.textLabel.text = user.name;
+    cell.statusFrme = self.statusesFrames[indexPath.row];
     
-    cell.detailTextLabel.text = status.text;
+//    //取出数组中的每一条 OHstatus
+//    OHStatus *status = [self.statusesFrames[indexPath.row] status];
+//    OHUser *user = status.user;
+//    cell.textLabel.text = user.name;
+//    
+//    cell.detailTextLabel.text = status.text;
+//    
+//    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
+//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:placeholder];
     
-    UIImage *placeholder = [UIImage imageNamed:@"avatar_default_small"];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:placeholder];
+    
     
     return cell;
 }
@@ -361,7 +386,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     //滑动到底部自动刷新
-    if (self.statuses.count == 0) return;
+    if (self.statusesFrames.count == 0) return;
     //初始化时，offsetY = -64
     CGFloat offsetY = scrollView.contentOffset.y;
     CGFloat judgeOffsetY = scrollView.contentSize.height - scrollView.height + scrollView.contentInset.bottom;

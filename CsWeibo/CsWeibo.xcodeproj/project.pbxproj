@@ -79,6 +79,8 @@
 		4DB9E7741B019B6C00ABB1A5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E7641B019B6C00ABB1A5 /* UIView+WebCacheOperation.m */; };
 		4DB9E7771B01C26F00ABB1A5 /* OHLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E7761B01C26F00ABB1A5 /* OHLoadMoreFooter.m */; };
 		4DB9E7791B01C29500ABB1A5 /* OHLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB9E7781B01C29500ABB1A5 /* OHLoadMoreFooter.xib */; };
+		4DB9E77C1B021B2200ABB1A5 /* OHStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E77B1B021B2200ABB1A5 /* OHStatusFrame.m */; };
+		4DB9E77F1B0226EE00ABB1A5 /* OHStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E77E1B0226EE00ABB1A5 /* OHStatusCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +240,10 @@
 		4DB9E7751B01C26F00ABB1A5 /* OHLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHLoadMoreFooter.h; sourceTree = "<group>"; };
 		4DB9E7761B01C26F00ABB1A5 /* OHLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHLoadMoreFooter.m; sourceTree = "<group>"; };
 		4DB9E7781B01C29500ABB1A5 /* OHLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OHLoadMoreFooter.xib; sourceTree = "<group>"; };
+		4DB9E77A1B021B2200ABB1A5 /* OHStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusFrame.h; sourceTree = "<group>"; };
+		4DB9E77B1B021B2200ABB1A5 /* OHStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusFrame.m; sourceTree = "<group>"; };
+		4DB9E77D1B0226EE00ABB1A5 /* OHStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusCell.h; sourceTree = "<group>"; };
+		4DB9E77E1B0226EE00ABB1A5 /* OHStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,6 +552,8 @@
 				4D14C54A1B00CEE4007F0314 /* OHStatus.m */,
 				4D14C54C1B00CEED007F0314 /* OHUser.h */,
 				4D14C54D1B00CEED007F0314 /* OHUser.m */,
+				4DB9E77A1B021B2200ABB1A5 /* OHStatusFrame.h */,
+				4DB9E77B1B021B2200ABB1A5 /* OHStatusFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -558,6 +566,8 @@
 				4DB9E7751B01C26F00ABB1A5 /* OHLoadMoreFooter.h */,
 				4DB9E7761B01C26F00ABB1A5 /* OHLoadMoreFooter.m */,
 				4DB9E7781B01C29500ABB1A5 /* OHLoadMoreFooter.xib */,
+				4DB9E77D1B0226EE00ABB1A5 /* OHStatusCell.h */,
+				4DB9E77E1B0226EE00ABB1A5 /* OHStatusCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -868,6 +878,7 @@
 				4D14C5611B00D117007F0314 /* MJConst.m in Sources */,
 				4DB9E7651B019B6C00ABB1A5 /* MKAnnotationView+WebCache.m in Sources */,
 				4D4FD1741B009DFB00A4CC9B /* MBProgressHUD+MJ.m in Sources */,
+				4DB9E77C1B021B2200ABB1A5 /* OHStatusFrame.m in Sources */,
 				4DB9E7721B019B6C00ABB1A5 /* UIImageView+HighlightedWebCache.m in Sources */,
 				4DAACE941AFB57470082068B /* UIBarButtonItem+OHExtension.m in Sources */,
 				4DB9E76E1B019B6C00ABB1A5 /* UIButton+WebCache.m in Sources */,
@@ -893,6 +904,7 @@
 				4DB9E76C1B019B6C00ABB1A5 /* SDWebImageManager.m in Sources */,
 				4D4FD18C1B009E2900A4CC9B /* AFHTTPRequestOperationManager.m in Sources */,
 				4D6F253D1AFC943A001FFC3F /* OHDropDownWindow.m in Sources */,
+				4DB9E77F1B0226EE00ABB1A5 /* OHStatusCell.m in Sources */,
 				4D14C5481B00C990007F0314 /* OHTitleButton.m in Sources */,
 				4DB9E7681B019B6C00ABB1A5 /* SDWebImageCompat.m in Sources */,
 				4D14C54E1B00CEED007F0314 /* OHUser.m in Sources */,
