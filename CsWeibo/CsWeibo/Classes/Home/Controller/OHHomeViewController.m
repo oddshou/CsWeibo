@@ -21,6 +21,7 @@
 #import "OHLoadMoreFooter.h"
 #import "OHStatusFrame.h"
 #import "OHStatusCell.h"
+#import "OHToolsColor.h"
 
 
 @interface OHHomeViewController ()
@@ -102,6 +103,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.backgroundColor = OHColor(211, 211, 211, 1.0);
     
     //设置导航栏的内容
     [self setupNav];
@@ -381,6 +384,12 @@
     
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OHStatusFrame *frame = self.statusesFrames[indexPath.row];
+    return frame.cellHeight;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

@@ -10,6 +10,10 @@
 #import "OHStatusFrame.h"
 #import "OHStatus.h"
 #import "OHUser.h"
+#import "UIImageView+WebCache.h"
+#import "OHStatusPhoto.h"
+#import "OHToolsColor.h"
+#import "OHStatusToolbar.h"
 
 @interface OHStatusCell ()
 
@@ -31,16 +35,76 @@
 /** 正文 */
 @property (nonatomic, weak) UILabel *contentLabel;
 
+/* 转发微博 */
+/** 转发微博整体 */
+@property (nonatomic, weak) UIView *retweetView;
+/** 转发微博正文 + 昵称 */
+@property (nonatomic, weak) UILabel *retweetContentLabel;
+/** 转发配图 */
+@property (nonatomic, weak) UIImageView *retweetPhotoView;
+
+/** 工具条 */
+@property (nonatomic, weak) OHStatusToolbar *toolbar;
+
 @end
 
 @implementation OHStatusCell
 
 #pragma mark source get method
+#pragma mark 工具条控件get方法
+
+- (OHStatusToolbar *)toolbar
+{
+    if (!_toolbar) {
+        OHStatusToolbar *toolbar = [[OHStatusToolbar alloc] init];
+        [self.contentView addSubview:toolbar];
+        _toolbar = toolbar;
+    }
+    return _toolbar;
+}
+
+#pragma mark 转发微博控件get方法
+- (UIView *)retweetView{
+    if (!_retweetView) {
+        UIView *retweetView = [[UIView alloc] init];
+        [self.contentView addSubview:retweetView];
+        retweetView.backgroundColor = OHColor(247, 247, 247, 1.0);
+        _retweetView = retweetView;
+    }
+    return _retweetView;
+}
+
+- (UILabel *)retweetContentLabel
+{
+    if (!_retweetContentLabel) {
+        UILabel *retweetContentLabel = [[UILabel alloc] init];
+        [self.retweetView addSubview:retweetContentLabel];
+        retweetContentLabel.font = OHStatusCellRetweetContentFont;
+        retweetContentLabel.numberOfLines = 0;
+        _retweetContentLabel = retweetContentLabel;
+    }
+    return _retweetContentLabel;
+}
+
+- (UIImageView *)retweetPhotoView
+{
+    if (!_retweetPhotoView) {
+        UIImageView *retweetPhotoView = [[UIImageView alloc] init];
+//        retweetPhotoView.contentMode = UIViewContentModeCenter;  //设置拉伸模式
+        [self.retweetView addSubview:retweetPhotoView];
+        _retweetPhotoView = retweetPhotoView;
+    }
+    return _retweetPhotoView;
+}
+
+
+#pragma mark 原创微博控件get方法
 - (UIView *)originalView
 {
     if (!_originalView) {
         UIView *originalView = [[UIView alloc] init];
         [self.contentView addSubview:originalView];
+        originalView.backgroundColor = [UIColor whiteColor];
         _originalView = originalView;
     }
     return _originalView;
@@ -61,6 +125,7 @@
 {
     if (!_vipView) {
         UIImageView *vipView = [[UIImageView alloc] init];
+        vipView.contentMode = UIViewContentModeCenter;  //设置拉伸模式
         [self.originalView addSubview:vipView];
         _vipView = vipView;
     }
@@ -114,23 +179,23 @@
         UILabel *contentLabel = [[UILabel alloc] init];
         [self.originalView addSubview:contentLabel];
         contentLabel.font = OHStatusCellContentFont;
+        contentLabel.numberOfLines = 0; //设置多行
+//        contentLabel.backgroundColor = [UIColor yellowColor];
         _contentLabel = contentLabel;
     }
     return _contentLabel;
 }
-//
-//- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-//{
-//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-//    //此处的重用似乎没有用，应当先判断，再创建
-//    if (self) {
-//        //判断是否为空
-//    }
-//    
-//    
-//    
-//    return self;
-//}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.backgroundColor = [UIColor clearColor];
+        //点击cell无选中色
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
+}
 
 - (void)setStatusFrme:(OHStatusFrame *)statusFrme
 {
@@ -139,7 +204,97 @@
     OHStatus *status = statusFrme.status;
     OHUser *user = status.user;
     
+    //原创微博整体
+    self.originalView.frame = statusFrme.originalViewF;
     
+    //头像
+    self.iconView.frame = statusFrme.iconViewF;
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    
+    //会员图标
+    if (user.isVip) {
+//        self.vipView.hidden = NO;
+        self.vipView.frame = statusFrme.vipViewF;
+        NSString *vipName = [NSString stringWithFormat:@"common_icon_membership_level%d", user.mbrank];
+        self.vipView.image = [UIImage imageNamed:vipName];
+        self.nameLabel.textColor = [UIColor orangeColor];
+    }else{
+        self.nameLabel.textColor = [UIColor blackColor];
+//        self.vipView.hidden = YES;
+        if (_vipView) { //从父控件中移除
+            [_vipView removeFromSuperview];
+        }
+    }
+    
+    //昵称
+    self.nameLabel.text = user.name;
+    self.nameLabel.frame = statusFrme.nameLabelF;
+    
+    //时间
+    self.timeLabel.text = status.created_at;
+    self.timeLabel.frame = statusFrme.timeLabelF;
+    
+    /** 来源 */
+    self.sourceLabel.text = status.source;
+    self.sourceLabel.frame = statusFrme.sourceLabelF;
+    
+    /** 正文 */
+    self.contentLabel.text = status.text;
+    self.contentLabel.frame = statusFrme.contentLabelF;
+    
+    /** 配图 */
+    if (status.pic_urls.count) {
+        self.photoView.frame = statusFrme.photoViewF;
+        OHStatusPhoto *photo = [status.pic_urls firstObject];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        
+//        self.photoView.hidden = NO;
+    } else {
+//        self.photoView.hidden = YES;
+#warning 应当从父控件当中remove掉
+        if (_photoView) {
+            [_photoView removeFromSuperview];
+        }
+    }
+//    NSLog(@"username %@, subview%@", user.name, _originalView.subviews);
+    // 显示转发的微博
+    if (status.retweeted_status) {
+        OHStatus *retweeted_status = status.retweeted_status;
+        OHUser *retweeted_status_user = retweeted_status.user;
+        //转发的微博整体
+        self.retweetView.frame = statusFrme.retweetViewF;
+        //微博正文
+        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweeted_status_user.name, retweeted_status.text];
+        self.retweetContentLabel.text = retweetContent;
+        self.retweetContentLabel.frame = statusFrme.retweetContentLabelF;
+        //微博配图
+        if (retweeted_status.pic_urls.count) {
+            self.retweetPhotoView.frame = statusFrme.retweetPhotoViewF;
+            OHStatusPhoto *retweetedPhoto = [retweeted_status.pic_urls firstObject];
+                        [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetedPhoto.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            
+            
+        }else{
+            if (_retweetPhotoView) {
+                [_retweetPhotoView removeFromSuperview];
+            }
+        }
+    }else{
+        if (_retweetView) {
+            [_retweetView removeFromSuperview];
+        }
+    }
+    
+    //显示工具条
+    self.toolbar.frame = statusFrme.toolbarF;
+    self.toolbar.status = status;
 }
 
 @end
+
+
+
+
+
+
+

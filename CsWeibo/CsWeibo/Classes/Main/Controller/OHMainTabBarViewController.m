@@ -69,7 +69,7 @@
     selectTextAttrs[NSForegroundColorAttributeName] = [UIColor redColor];
     [childVc.tabBarItem setTitleTextAttributes:textArrts forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
-    childVc.view.backgroundColor = OHRandomColor;
+//    childVc.view.backgroundColor = OHRandomColor;
     
     //给viewcontroller 设置一个navigationcontroller 使他们有导航栏
     OHMainNaviViewController *nav = [[OHMainNaviViewController alloc] initWithRootViewController:childVc];

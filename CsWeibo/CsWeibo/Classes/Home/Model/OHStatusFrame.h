@@ -18,6 +18,11 @@
 #define OHStatusCellSourceFont OHStatusCellTimeFont
 // 正文字体
 #define OHStatusCellContentFont [UIFont systemFontOfSize:14]
+// 被转发微博的正文字体
+#define OHStatusCellRetweetContentFont [UIFont systemFontOfSize:13]
+
+// cell之间的间距
+#define OHStatusCellMargin 15
 
 @class OHStatus;
 /**
@@ -43,6 +48,16 @@
 @property (nonatomic, assign) CGRect sourceLabelF;
 /** 正文 */
 @property (nonatomic, assign) CGRect contentLabelF;
+
+/** 转发微博整体 */
+@property (nonatomic, assign) CGRect retweetViewF;
+/** 转发微博正文 + 昵称 */
+@property (nonatomic, assign) CGRect retweetContentLabelF;
+/** 转发配图 */
+@property (nonatomic, assign) CGRect retweetPhotoViewF;
+
+/** 底部工具条 */
+@property (nonatomic, assign) CGRect toolbarF;
 
 /** cell的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
