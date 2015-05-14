@@ -13,8 +13,9 @@
 #import "OHMessageCenterViewController.h"
 #import "OHDiscoverViewController.h"
 #import "OHTabBar.h"
+#import "OHComposeViewController.h"
 
-@interface OHMainTabBarViewController ()
+@interface OHMainTabBarViewController () <OHTabBarDelegate>
 
 @end
 
@@ -92,5 +93,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark delegate方法
+#pragma mark 点击加号
+- (void)tabBarDidClickPlusButton:(OHTabBar *)tabBar
+{
+    OHComposeViewController *compose = [[OHComposeViewController alloc] init];
+    OHMainNaviViewController *nav = [[OHMainNaviViewController alloc] initWithRootViewController:compose];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
+
+
 
 @end

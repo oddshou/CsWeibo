@@ -60,6 +60,7 @@
 		4D56ED441B0450FF00E0F9F6 /* OHStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED431B0450FF00E0F9F6 /* OHStatusPhotosView.m */; };
 		4D56ED471B04512700E0F9F6 /* OHStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED461B04512700E0F9F6 /* OHStatusPhotoView.m */; };
 		4D56ED4A1B047F4600E0F9F6 /* OHIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED491B047F4600E0F9F6 /* OHIconView.m */; };
+		4D56ED501B04BD6D00E0F9F6 /* OHComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED4F1B04BD6D00E0F9F6 /* OHComposeViewController.m */; };
 		4D5AE9AD1B02EFC900DBAF1C /* OHStatusPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AE9AC1B02EFC900DBAF1C /* OHStatusPhoto.m */; };
 		4D6F253A1AFC673D001FFC3F /* OHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F25391AFC673D001FFC3F /* OHSearchBar.m */; };
 		4D6F253D1AFC943A001FFC3F /* OHDropDownWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F253C1AFC943A001FFC3F /* OHDropDownWindow.m */; };
@@ -210,6 +211,8 @@
 		4D56ED461B04512700E0F9F6 /* OHStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusPhotoView.m; sourceTree = "<group>"; };
 		4D56ED481B047F4600E0F9F6 /* OHIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHIconView.h; sourceTree = "<group>"; };
 		4D56ED491B047F4600E0F9F6 /* OHIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHIconView.m; sourceTree = "<group>"; };
+		4D56ED4E1B04BD6D00E0F9F6 /* OHComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHComposeViewController.h; sourceTree = "<group>"; };
+		4D56ED4F1B04BD6D00E0F9F6 /* OHComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHComposeViewController.m; sourceTree = "<group>"; };
 		4D5AE9AB1B02EFC900DBAF1C /* OHStatusPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusPhoto.h; sourceTree = "<group>"; };
 		4D5AE9AC1B02EFC900DBAF1C /* OHStatusPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusPhoto.m; sourceTree = "<group>"; };
 		4D6F25381AFC673D001FFC3F /* OHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSearchBar.h; sourceTree = "<group>"; };
@@ -508,6 +511,31 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		4D56ED4B1B04BD5500E0F9F6 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				4D56ED4C1B04BD5500E0F9F6 /* Controller */,
+				4D56ED4D1B04BD5500E0F9F6 /* View */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		4D56ED4C1B04BD5500E0F9F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D56ED4E1B04BD6D00E0F9F6 /* OHComposeViewController.h */,
+				4D56ED4F1B04BD6D00E0F9F6 /* OHComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4D56ED4D1B04BD5500E0F9F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4D826D9E1AFB0F2900BBB4B2 /* libWeiboSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +572,7 @@
 		4D826DC01AFB466900BBB4B2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D56ED4B1B04BD5500E0F9F6 /* Compose */,
 				4D4D02451AFDE3C800471341 /* NewFeature */,
 				4D4D02401AFDD28400471341 /* OAuth */,
 				4D826DC11AFB466900BBB4B2 /* Discover */,
@@ -950,6 +979,7 @@
 				4D14C5481B00C990007F0314 /* OHTitleButton.m in Sources */,
 				4D14C54E1B00CEED007F0314 /* OHUser.m in Sources */,
 				4D14C5641B00D117007F0314 /* MJType.m in Sources */,
+				4D56ED501B04BD6D00E0F9F6 /* OHComposeViewController.m in Sources */,
 				4D374D4B1B035BA500452A97 /* NSData+ImageContentType.m in Sources */,
 				4D4FD16A1B0072FC00A4CC9B /* OHAccount.m in Sources */,
 				4DAACE8D1AFB55EB0082068B /* OHMessageCenterViewController.m in Sources */,

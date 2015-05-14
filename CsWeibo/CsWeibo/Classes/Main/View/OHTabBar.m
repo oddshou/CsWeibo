@@ -50,6 +50,11 @@
 - (void)plusClick
 {
     NSLog(@"plusClick...");
+    //继承Tabbar的delegate‘
+    if ([self.delegate respondsToSelector:@selector(tabBarDidClickPlusButton:)]) {
+        [self.delegate tabBarDidClickPlusButton:self];
+    }
+    
 }
 
 - (void)layoutSubviews
