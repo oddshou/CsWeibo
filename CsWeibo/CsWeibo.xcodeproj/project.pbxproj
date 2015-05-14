@@ -56,6 +56,10 @@
 		4D4FD1911B009E2900A4CC9B /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FD1861B009E2900A4CC9B /* AFURLRequestSerialization.m */; };
 		4D4FD1921B009E2900A4CC9B /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FD1881B009E2900A4CC9B /* AFURLResponseSerialization.m */; };
 		4D4FD1931B009E2900A4CC9B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FD18A1B009E2900A4CC9B /* AFURLSessionManager.m */; };
+		4D56ED411B04366E00E0F9F6 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED401B04366E00E0F9F6 /* NSString+Extension.m */; };
+		4D56ED441B0450FF00E0F9F6 /* OHStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED431B0450FF00E0F9F6 /* OHStatusPhotosView.m */; };
+		4D56ED471B04512700E0F9F6 /* OHStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED461B04512700E0F9F6 /* OHStatusPhotoView.m */; };
+		4D56ED4A1B047F4600E0F9F6 /* OHIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED491B047F4600E0F9F6 /* OHIconView.m */; };
 		4D5AE9AD1B02EFC900DBAF1C /* OHStatusPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5AE9AC1B02EFC900DBAF1C /* OHStatusPhoto.m */; };
 		4D6F253A1AFC673D001FFC3F /* OHSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F25391AFC673D001FFC3F /* OHSearchBar.m */; };
 		4D6F253D1AFC943A001FFC3F /* OHDropDownWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6F253C1AFC943A001FFC3F /* OHDropDownWindow.m */; };
@@ -198,6 +202,14 @@
 		4D4FD1881B009E2900A4CC9B /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		4D4FD1891B009E2900A4CC9B /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		4D4FD18A1B009E2900A4CC9B /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		4D56ED3F1B04366E00E0F9F6 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		4D56ED401B04366E00E0F9F6 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		4D56ED421B0450FF00E0F9F6 /* OHStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusPhotosView.h; sourceTree = "<group>"; };
+		4D56ED431B0450FF00E0F9F6 /* OHStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusPhotosView.m; sourceTree = "<group>"; };
+		4D56ED451B04512700E0F9F6 /* OHStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusPhotoView.h; sourceTree = "<group>"; };
+		4D56ED461B04512700E0F9F6 /* OHStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusPhotoView.m; sourceTree = "<group>"; };
+		4D56ED481B047F4600E0F9F6 /* OHIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHIconView.h; sourceTree = "<group>"; };
+		4D56ED491B047F4600E0F9F6 /* OHIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHIconView.m; sourceTree = "<group>"; };
 		4D5AE9AB1B02EFC900DBAF1C /* OHStatusPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusPhoto.h; sourceTree = "<group>"; };
 		4D5AE9AC1B02EFC900DBAF1C /* OHStatusPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusPhoto.m; sourceTree = "<group>"; };
 		4D6F25381AFC673D001FFC3F /* OHSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHSearchBar.h; sourceTree = "<group>"; };
@@ -622,6 +634,10 @@
 				4DB9E77E1B0226EE00ABB1A5 /* OHStatusCell.m */,
 				4D374D251B0352F500452A97 /* OHStatusToolbar.h */,
 				4D374D261B0352F500452A97 /* OHStatusToolbar.m */,
+				4D56ED451B04512700E0F9F6 /* OHStatusPhotoView.h */,
+				4D56ED461B04512700E0F9F6 /* OHStatusPhotoView.m */,
+				4D56ED421B0450FF00E0F9F6 /* OHStatusPhotosView.h */,
+				4D56ED431B0450FF00E0F9F6 /* OHStatusPhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -677,6 +693,8 @@
 				4D6F253C1AFC943A001FFC3F /* OHDropDownWindow.m */,
 				4DA3DB471AFCB31000E02FCC /* OHTabBar.h */,
 				4DA3DB481AFCB31000E02FCC /* OHTabBar.m */,
+				4D56ED481B047F4600E0F9F6 /* OHIconView.h */,
+				4D56ED491B047F4600E0F9F6 /* OHIconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -768,6 +786,8 @@
 				4D4FD1651B00706A00A4CC9B /* UIWindow+OHExtension.m */,
 				4D374D5A1B035BB800452A97 /* NSDate+Extension.h */,
 				4D374D5B1B035BB800452A97 /* NSDate+Extension.m */,
+				4D56ED3F1B04366E00E0F9F6 /* NSString+Extension.h */,
+				4D56ED401B04366E00E0F9F6 /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -897,6 +917,7 @@
 				4D374D571B035BA500452A97 /* UIImageView+HighlightedWebCache.m in Sources */,
 				4D4FD1741B009DFB00A4CC9B /* MBProgressHUD+MJ.m in Sources */,
 				4DB9E77C1B021B2200ABB1A5 /* OHStatusFrame.m in Sources */,
+				4D56ED4A1B047F4600E0F9F6 /* OHIconView.m in Sources */,
 				4DAACE941AFB57470082068B /* UIBarButtonItem+OHExtension.m in Sources */,
 				4D4FD1761B009DFB00A4CC9B /* MBProgressHUD.m in Sources */,
 				4D4FD18F1B009E2900A4CC9B /* AFSecurityPolicy.m in Sources */,
@@ -909,6 +930,8 @@
 				4D374D541B035BA500452A97 /* UIImage+GIF.m in Sources */,
 				4D4D02441AFDD29B00471341 /* OHOAuthViewController.m in Sources */,
 				4D826DDD1AFB47C200BBB4B2 /* OHMainNaviViewController.m in Sources */,
+				4D56ED441B0450FF00E0F9F6 /* OHStatusPhotosView.m in Sources */,
+				4D56ED411B04366E00E0F9F6 /* NSString+Extension.m in Sources */,
 				4D374D591B035BA500452A97 /* UIView+WebCacheOperation.m in Sources */,
 				4DAACE901AFB55FE0082068B /* OHProfileViewController.m in Sources */,
 				4D374D511B035BA500452A97 /* SDWebImageManager.m in Sources */,
@@ -916,6 +939,7 @@
 				4D14C5661B00D117007F0314 /* NSObject+MJKeyValue.m in Sources */,
 				4D826DDA1AFB466900BBB4B2 /* main.m in Sources */,
 				4D14C5651B00D117007F0314 /* NSObject+MJCoding.m in Sources */,
+				4D56ED471B04512700E0F9F6 /* OHStatusPhotoView.m in Sources */,
 				4D826DE01AFB480B00BBB4B2 /* OHMainTabBarViewController.m in Sources */,
 				4DA3DB491AFCB31000E02FCC /* OHTabBar.m in Sources */,
 				4DB9E7771B01C26F00ABB1A5 /* OHLoadMoreFooter.m in Sources */,

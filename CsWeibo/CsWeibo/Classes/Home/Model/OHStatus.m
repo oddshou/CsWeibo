@@ -81,6 +81,22 @@
         return [fmt stringFromDate:createDate];
     }
 }
+// source == <a href="http://app.weibo.com/t/feed/2llosp" rel="nofollow">OPPO_N1mini</a>
+- (void)setSource:(NSString *)source
+{
+    if (source.length <= 0) {
+        _source = source;
+        return;
+    }
+    
+    // 正则表达式 NSRegularExpression
+    // 截串 NSString
+    NSRange range;
+    range.location = [source rangeOfString:@">"].location + 1;
+    range.length = [source rangeOfString:@"</"].location - range.location;
+    //    range.length = [source rangeOfString:@"<" options:NSBackwardsSearch];
+    _source = [NSString stringWithFormat:@"来自%@", [source substringWithRange:range]];
+}
 
 
 

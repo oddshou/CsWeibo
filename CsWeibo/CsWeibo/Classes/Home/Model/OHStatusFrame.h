@@ -23,6 +23,8 @@
 
 // cell之间的间距
 #define OHStatusCellMargin 15
+// cell的边框宽度
+#define OHStatusCellBorderW 10
 
 @class OHStatus;
 /**

@@ -9,25 +9,26 @@
 #import "OHStatusFrame.h"
 #import "OHUser.h"
 #import "OHStatus.h"
+#import "NSString+Extension.h"
+#import "OHStatusPhotosView.h"
 
-// cell的边框宽度
-#define OHStatusCellBorderW 10
+
 
 @implementation OHStatusFrame
 
 #pragma mark help
-- (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxW:(CGFloat)maxW
-{
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = font;
-    CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
-    return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
-}
-
-- (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font
-{
-    return [self sizeWithText:text font:font maxW:MAXFLOAT];
-}
+//- (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxW:(CGFloat)maxW
+//{
+//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+//    attrs[NSFontAttributeName] = font;
+//    CGSize maxSize = CGSizeMake(maxW, MAXFLOAT);
+//    return [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+//}
+//
+//- (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font
+//{
+//    return [self sizeWithText:text font:font maxW:MAXFLOAT];
+//}
 
 - (void)setStatus:(OHStatus *)status
 {
@@ -47,7 +48,7 @@
     //昵称
     CGFloat nameX = CGRectGetMaxX(self.iconViewF) + OHStatusCellBorderW;
     CGFloat nameY = iconY;
-    CGSize nameSize = [self sizeWithText:user.name font:OHStatusCellNameFont];
+    CGSize nameSize = [user.name sizeWithFont:OHStatusCellNameFont];
     self.nameLabelF = (CGRect){{nameX, nameY}, nameSize};
     
     //会员图标
@@ -65,29 +66,31 @@
     //时间
     CGFloat timeX = nameX;
     CGFloat timeY = CGRectGetMaxY(self.nameLabelF) + OHStatusCellBorderW;
-    CGSize timeSize = [self sizeWithText:status.created_at font:OHStatusCellTimeFont];
+    CGSize timeSize = [status.created_at sizeWithFont:OHStatusCellTimeFont];
     self.timeLabelF = (CGRect){{timeX, timeY}, timeSize};
     
     //来源
     CGFloat sourceX = CGRectGetMaxX(self.timeLabelF) + OHStatusCellBorderW;
     CGFloat sourceY = timeY;
-    CGSize sourceSize = [self sizeWithText:status.source font:OHStatusCellSourceFont];
+    CGSize sourceSize = [status.source sizeWithFont:OHStatusCellSourceFont];
     self.sourceLabelF = (CGRect){{sourceX, sourceY}, sourceSize};
     
     /** 正文 */
     CGFloat contentX = iconX;
     CGFloat contentY = MAX(CGRectGetMaxY(self.iconViewF), CGRectGetMaxY(self.timeLabelF)) + OHStatusCellBorderW;
     CGFloat maxW = cellW - 2 * contentX;
-    CGSize contentSize = [self sizeWithText:status.text font:OHStatusCellContentFont maxW:maxW];
+    CGSize contentSize = [status.text sizeWithFont:OHStatusCellContentFont maxW:maxW];
     self.contentLabelF = (CGRect){{contentX, contentY}, contentSize};
     
     //配图
 //    CGFloat originalH = 0;
     if (status.pic_urls.count) { // 有配图
-        CGFloat photoWH = 100;
+//        CGFloat photoWH = 100;
         CGFloat photoX = contentX;
         CGFloat photoY = CGRectGetMaxY(self.contentLabelF) + OHStatusCellBorderW;
-        self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+        CGSize photoSize = [OHStatusPhotosView sizeWithCount:status.pic_urls.count];
+        self.photoViewF = (CGRect){{photoX, photoY}, photoSize};
+//        self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
         
 //        originalH = CGRectGetMaxY(self.photoViewF) + OHStatusCellBorderW;
 //    } else { // 没配图
@@ -112,16 +115,18 @@
         CGFloat retweetContentX = OHStatusCellBorderW;
         CGFloat retweetContentY = OHStatusCellBorderW;
         NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweeted_status_user.name, retweeted_status.text];
-        CGSize retweetContentSize = [self sizeWithText:retweetContent font:OHStatusCellRetweetContentFont maxW:maxW];
+        CGSize retweetContentSize = [retweetContent sizeWithFont:OHStatusCellRetweetContentFont maxW:maxW];
         self.retweetContentLabelF = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
         
         //计算转发微博配图
         if (retweeted_status.pic_urls.count) { // 转发微博有配图
 #warning 转发微博配图宽高
-            CGFloat retweetPhotoWH = 100;
+//            CGFloat retweetPhotoWH = 100;
             CGFloat retweetPhotoX = retweetContentX;
             CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelF) + OHStatusCellBorderW;
-            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
+            CGSize retweetPhotoSize = [OHStatusPhotosView sizeWithCount:retweeted_status.pic_urls.count];
+            self.retweetPhotoViewF = (CGRect){{retweetPhotoX, retweetPhotoY}, retweetPhotoSize};
+//            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
             
 //            retweetH = CGRectGetMaxY(self.retweetPhotoViewF) + HWStatusCellBorderW;
 //        } else { // 转发微博没有配图
