@@ -293,7 +293,7 @@
  *
  *  @param count 最新微博数
  */
-- (void)showNewStatusCount:(int)count
+- (void)showNewStatusCount:(NSUInteger)count
 {
     UILabel *label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];

@@ -21,7 +21,7 @@
 {
     _photos = photos;
     
-    int photosCount = photos.count;
+    NSUInteger photosCount = photos.count;
     //创建足够数量的图片控件
     while (self.subviews.count < photosCount) {
         OHStatusPhotoView *photoView = [[OHStatusPhotoView alloc] init];
@@ -43,7 +43,7 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    int photosCount = self.photos.count;
+    NSUInteger photosCount = self.photos.count;
     //最大列数
     int maxCols = OHStatusPhotoMaxCol(photosCount);
     for (int i = 0; i < photosCount; i++) {
@@ -60,15 +60,15 @@
     
 }
 
-+ (CGSize)sizeWithCount:(int)count
++ (CGSize)sizeWithCount:(NSUInteger)count
 {
     // 最大列数（一行最多有多少列）
     int maxCols = OHStatusPhotoMaxCol(count);
-    int cols = (count >= maxCols)? maxCols : count;
+    NSUInteger cols = (count >= maxCols)? maxCols : count;
     CGFloat photosW = cols * OHStatusPhotoWH + (cols - 1) * OHStatusPhotoMargin;
     
     //行数
-    int rows = (count + cols - 1)/ cols;
+    NSUInteger rows = (count + cols - 1)/ cols;
     CGFloat photosH = rows * OHStatusPhotoWH + (rows - 1) * OHStatusPhotoMargin;
     
     return CGSizeMake(photosW, photosH);

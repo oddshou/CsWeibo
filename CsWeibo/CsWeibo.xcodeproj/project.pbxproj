@@ -56,6 +56,8 @@
 		4D4FD1911B009E2900A4CC9B /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FD1861B009E2900A4CC9B /* AFURLRequestSerialization.m */; };
 		4D4FD1921B009E2900A4CC9B /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FD1881B009E2900A4CC9B /* AFURLResponseSerialization.m */; };
 		4D4FD1931B009E2900A4CC9B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4FD18A1B009E2900A4CC9B /* AFURLSessionManager.m */; };
+		4D5671061B058C56000B0B2A /* OHPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5671051B058C56000B0B2A /* OHPlaceHolderTextView.m */; };
+		4D5671091B059CAB000B0B2A /* OHCompseToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5671081B059CAB000B0B2A /* OHCompseToolbar.m */; };
 		4D56ED411B04366E00E0F9F6 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED401B04366E00E0F9F6 /* NSString+Extension.m */; };
 		4D56ED441B0450FF00E0F9F6 /* OHStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED431B0450FF00E0F9F6 /* OHStatusPhotosView.m */; };
 		4D56ED471B04512700E0F9F6 /* OHStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56ED461B04512700E0F9F6 /* OHStatusPhotoView.m */; };
@@ -89,6 +91,7 @@
 		4DB9E7791B01C29500ABB1A5 /* OHLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB9E7781B01C29500ABB1A5 /* OHLoadMoreFooter.xib */; };
 		4DB9E77C1B021B2200ABB1A5 /* OHStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E77B1B021B2200ABB1A5 /* OHStatusFrame.m */; };
 		4DB9E77F1B0226EE00ABB1A5 /* OHStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB9E77E1B0226EE00ABB1A5 /* OHStatusCell.m */; };
+		4DE7A24E1B05D35D001FF1EF /* OHComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7A24D1B05D35D001FF1EF /* OHComposePhotosView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +206,10 @@
 		4D4FD1881B009E2900A4CC9B /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		4D4FD1891B009E2900A4CC9B /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		4D4FD18A1B009E2900A4CC9B /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		4D5671041B058C56000B0B2A /* OHPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHPlaceHolderTextView.h; sourceTree = "<group>"; };
+		4D5671051B058C56000B0B2A /* OHPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHPlaceHolderTextView.m; sourceTree = "<group>"; };
+		4D5671071B059CAB000B0B2A /* OHCompseToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHCompseToolbar.h; sourceTree = "<group>"; };
+		4D5671081B059CAB000B0B2A /* OHCompseToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHCompseToolbar.m; sourceTree = "<group>"; };
 		4D56ED3F1B04366E00E0F9F6 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		4D56ED401B04366E00E0F9F6 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		4D56ED421B0450FF00E0F9F6 /* OHStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusPhotosView.h; sourceTree = "<group>"; };
@@ -268,6 +275,8 @@
 		4DB9E77B1B021B2200ABB1A5 /* OHStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusFrame.m; sourceTree = "<group>"; };
 		4DB9E77D1B0226EE00ABB1A5 /* OHStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHStatusCell.h; sourceTree = "<group>"; };
 		4DB9E77E1B0226EE00ABB1A5 /* OHStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHStatusCell.m; sourceTree = "<group>"; };
+		4DE7A24C1B05D35D001FF1EF /* OHComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OHComposePhotosView.h; sourceTree = "<group>"; };
+		4DE7A24D1B05D35D001FF1EF /* OHComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OHComposePhotosView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +541,10 @@
 		4D56ED4D1B04BD5500E0F9F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D5671071B059CAB000B0B2A /* OHCompseToolbar.h */,
+				4D5671081B059CAB000B0B2A /* OHCompseToolbar.m */,
+				4DE7A24C1B05D35D001FF1EF /* OHComposePhotosView.h */,
+				4DE7A24D1B05D35D001FF1EF /* OHComposePhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -724,6 +737,8 @@
 				4DA3DB481AFCB31000E02FCC /* OHTabBar.m */,
 				4D56ED481B047F4600E0F9F6 /* OHIconView.h */,
 				4D56ED491B047F4600E0F9F6 /* OHIconView.m */,
+				4D5671041B058C56000B0B2A /* OHPlaceHolderTextView.h */,
+				4D5671051B058C56000B0B2A /* OHPlaceHolderTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -929,6 +944,7 @@
 				4D374D581B035BA500452A97 /* UIImageView+WebCache.m in Sources */,
 				4D374D501B035BA500452A97 /* SDWebImageDownloaderOperation.m in Sources */,
 				4D4FD1901B009E2900A4CC9B /* AFURLConnectionOperation.m in Sources */,
+				4D5671091B059CAB000B0B2A /* OHCompseToolbar.m in Sources */,
 				4DAACE971AFB58CD0082068B /* UIView+Extension.m in Sources */,
 				4D374D561B035BA500452A97 /* UIImage+WebP.m in Sources */,
 				4D14C54B1B00CEE4007F0314 /* OHStatus.m in Sources */,
@@ -940,6 +956,7 @@
 				4D374D4C1B035BA500452A97 /* SDImageCache.m in Sources */,
 				4D4D02491AFDE3D800471341 /* OHNewFeatureViewController.m in Sources */,
 				4D4FD1931B009E2900A4CC9B /* AFURLSessionManager.m in Sources */,
+				4DE7A24E1B05D35D001FF1EF /* OHComposePhotosView.m in Sources */,
 				4D14C5681B00D117007F0314 /* NSString+MJExtension.m in Sources */,
 				4D374D4E1B035BA500452A97 /* SDWebImageDecoder.m in Sources */,
 				4D14C5611B00D117007F0314 /* MJConst.m in Sources */,
@@ -956,6 +973,7 @@
 				4D4FD1661B00706A00A4CC9B /* UIWindow+OHExtension.m in Sources */,
 				4D6F253A1AFC673D001FFC3F /* OHSearchBar.m in Sources */,
 				4DAACE871AFB55C20082068B /* OHDiscoverViewController.m in Sources */,
+				4D5671061B058C56000B0B2A /* OHPlaceHolderTextView.m in Sources */,
 				4D374D541B035BA500452A97 /* UIImage+GIF.m in Sources */,
 				4D4D02441AFDD29B00471341 /* OHOAuthViewController.m in Sources */,
 				4D826DDD1AFB47C200BBB4B2 /* OHMainNaviViewController.m in Sources */,
