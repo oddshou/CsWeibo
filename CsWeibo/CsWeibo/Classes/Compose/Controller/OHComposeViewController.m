@@ -267,6 +267,11 @@
     [self openImagePickerController:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
+- (void)openCamera
+{
+    [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
+}
+
 - (void)openImagePickerController:(UIImagePickerControllerSourceType)type
 {
     if (![UIImagePickerController isSourceTypeAvailable:type]) {
